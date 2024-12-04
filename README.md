@@ -15,7 +15,7 @@ is based on a greedy path-following mechanism. This directory is a fork of https
       publisher={SIAM}
     }
 
-## Project Structure
+## Project Structure and Descriptions
 ```plaintext
 .
 ├── imgs
