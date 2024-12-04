@@ -66,7 +66,7 @@ pip3 install -r requirements.txt
 This should install all the required dependencies of this project. 
 
 ## Using Docker
-Alternatively, the code in this repo can be ran
+Alternatively, the code in this repo can be ran using docker. 
 
 ## Using CIFAR-10 dataset
 Choose a data directory to store the CIFAR10 dataset in the data loaders python file. This will download the CIFAR-10 dataset to this folder when the script is ran.
