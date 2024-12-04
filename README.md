@@ -19,30 +19,28 @@ is based on a greedy path-following mechanism. This directory is a fork of https
 ```plaintext
 .
 ├── imgs
-│   ├── accuracy_differences # Visualizations of the differences in accuracies based on bits used and learning rate
-│   ├── training_visualizations # Visualizations of 
-│   └── weight_distribution_plots
-├── logs
-│   ├── .ipynb_checkpoints
-│   ├── init_log.py
-│   ├── Q1_Project_Experiments.csv
-│   └── Quantization_Log.csv
-├── quantized_models
+│   ├── accuracy_differences # Visualizations of the differences in accuracies based on bits used and learning rate.
+│   ├── training_visualizations # Visualizations of training metrics by learning rate used.
+│   └── weight_distribution_plots 
+├── logs # Contains logs of quantization results and the hyperparameters used to generate the quantized models.
+│   ├── init_log.py # Command to initialize the quantization log CSV.
+│   └── Quantization_Log.csv # Example of a quantization log
+├── quantized_models # Folder containing models post quantization
 │   ├── resnet18
 │   └── resnet50
 ├── src
-│   ├── model_training_notebooks # Folder containing various notebooks that can be used as an alternative way to run the training scripts
-│   ├── trained_model_weights # Folder containing saved model weights from training
-│   ├── visualization_notebooks
-│   ├── data_loaders.py
-│   ├── main.py
-│   ├── model_training.py
-│   ├── plot_training.py
-│   ├── quantize_neural_net.py
-│   ├── quantized_weight_dist.py
-│   ├── step_algorithm.py
-│   └── utils.py
-├── Dockerfile
+│   ├── model_training_notebooks # Folder containing various notebooks that can be used as an alternative way to run the training scripts.
+│   ├── visualization_notebooks # Folder containing various notebooks that can be used as an alternative way to generate the visualizations.
+│   ├── data_loaders.py # Helper code to help load datasets for models.
+│   ├── main.py # Script to run the quantization script.
+│   ├── model_training.py # Script to run the model training script.
+│   ├── plot_training.py # Script that plots and saves visualizations of training metrics by learning rate used.
+│   ├── quantize_neural_net.py # Contains code to perform the quantization of a neural network.
+│   ├── quantized_weight_dist.py # Script that plots and saves visualizations of the distributions between the weights of the original models and quantized models.
+│   ├── step_algorithm.py # Contains code for the step algorithm used in quantization
+│   └── utils.py # Contains code for various helper functions used in quantization and evaluation
+├── trained_model_weights # Folder containing saved model weights from training
+├── Dockerfile # Dockerfile to build docker image
 ├── README.md
 └── requirements.txt
 ```
