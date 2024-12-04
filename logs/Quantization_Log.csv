@@ -1,2 +1,3 @@
 Weights File,Model Name,Dataset,Quantization Batch Size,Original Top1 Accuracy,Quantized Top1 Accuracy,Original Top5 Accuracy,Quantized Top5 Accuracy,Bits,MLP_Alphabet_Scalar,CNN_Alphabet_Scalar,MLP_Percentile,CNN_Percentile,Stochastic Quantization,Regularizer,Lambda,Original Sparsity,Quantized Sparsity,Retain_rate,Fusion,Seed
 resnet18_lr_0.01.pth,resnet18,CIFAR10,128,0.7587,0.746,0.9835,0.981,4,1.16,1.16,1,1,False,,0.1,0.0,0.7953,0.25,False,0
+resnet18_lr_0.01.pth,resnet18,CIFAR10,128,0.7587,0.746,0.9835,0.981,4,1.16,1.16,1,1,False,,0.1,0.0,0.7953,0.25,False,0
