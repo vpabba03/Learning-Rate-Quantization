@@ -1,0 +1,25 @@
+Weights File,Model Name,Dataset,Quantization Batch Size,Original Top1 Accuracy,Quantized Top1 Accuracy,Original Top5 Accuracy,Quantized Top5 Accuracy,Bits,MLP_Alphabet_Scalar,CNN_Alphabet_Scalar,MLP_Percentile,CNN_Percentile,Stochastic Quantization,Regularizer,Lambda,Original Sparsity,Quantized Sparsity,Retain_rate,Fusion,Seed
+resnet18_lr_0.0001.pth,resnet18,CIFAR10,256,0.6844,0.5983,0.976,0.9622,3,1.16,1.16,1,1,False,,0.1,0.0,0.8202,0.25,False,0
+resnet18_lr_0.001.pth,resnet18,CIFAR10,256,0.7856,0.7813,0.9864,0.987,3,1.16,1.16,1,1,False,,0.1,0.0,0.8147,0.25,False,0
+resnet18_lr_0.01.pth,resnet18,CIFAR10,256,0.7587,0.7482,0.9835,0.981,3,1.16,1.16,1,1,False,,0.1,0.0,0.8408,0.25,False,0
+resnet18_lr_0.0001.pth,resnet18,CIFAR10,256,0.6844,0.6368,0.976,0.9697,4,1.16,1.16,1,1,False,,0.1,0.0,0.7683,0.25,False,0
+resnet18_lr_0.001.pth,resnet18,CIFAR10,256,0.7856,0.7848,0.9864,0.9864,4,1.16,1.16,1,1,False,,0.1,0.0,0.7707,0.25,False,0
+resnet18_lr_0.01.pth,resnet18,CIFAR10,256,0.7587,0.7566,0.9835,0.9819,4,1.16,1.16,1,1,False,,0.1,0.0,0.7985,0.25,False,0
+resnet18_lr_0.0001.pth,resnet18,CIFAR10,256,0.6844,0.6577,0.976,0.9726,5,1.16,1.16,1,1,False,,0.1,0.0,0.7399,0.25,False,0
+resnet18_lr_0.001.pth,resnet18,CIFAR10,256,0.7856,0.7852,0.9864,0.9871,5,1.16,1.16,1,1,False,,0.1,0.0,0.7435,0.25,False,0
+resnet18_lr_0.01.pth,resnet18,CIFAR10,256,0.7587,0.7565,0.9835,0.9826,5,1.16,1.16,1,1,False,,0.1,0.0,0.7637,0.25,False,0
+resnet18_lr_0.0001.pth,resnet18,CIFAR10,256,0.6844,0.6635,0.976,0.9752,8,1.16,1.16,1,1,False,,0.1,0.0,0.714,0.25,False,0
+resnet18_lr_0.001.pth,resnet18,CIFAR10,256,0.7856,0.7856,0.9864,0.987,8,1.16,1.16,1,1,False,,0.1,0.0,0.7172,0.25,False,0
+resnet18_lr_0.01.pth,resnet18,CIFAR10,256,0.7587,0.7562,0.9835,0.983,8,1.16,1.16,1,1,False,,0.1,0.0,0.7247,0.25,False,0
+resnet50_lr_0.0001.pth,resnet50,CIFAR10,256,0.5185,0.4413,0.9442,0.9099,3,1.16,1.16,1,1,False,,0.1,0.0,0.5554,0.25,False,0
+resnet50_lr_0.001.pth,resnet50,CIFAR10,256,0.5793,0.5721,0.9585,0.9558,3,1.16,1.16,1,1,False,,0.1,0.0,0.5355,0.25,False,0
+resnet50_lr_0.01.pth,resnet50,CIFAR10,256,0.6893,0.6376,0.9743,0.9567,3,1.16,1.16,1,1,False,,0.1,0.0,0.5819,0.25,False,0
+resnet50_lr_0.0001.pth,resnet50,CIFAR10,256,0.5185,0.4785,0.9442,0.9272,4,1.16,1.16,1,1,False,,0.1,0.0,0.4363,0.25,False,0
+resnet50_lr_0.001.pth,resnet50,CIFAR10,256,0.5793,0.5809,0.9585,0.9579,4,1.16,1.16,1,1,False,,0.1,0.0,0.4381,0.25,False,0
+resnet50_lr_0.01.pth,resnet50,CIFAR10,256,0.6893,0.6461,0.9743,0.968,4,1.16,1.16,1,1,False,,0.1,0.0,0.4847,0.25,False,0
+resnet50_lr_0.0001.pth,resnet50,CIFAR10,256,0.5185,0.4956,0.9444,0.9362,5,1.16,1.16,1,1,False,,0.1,0.0,0.3714,0.25,False,0
+resnet50_lr_0.001.pth,resnet50,CIFAR10,256,0.5794,0.5793,0.9585,0.9582,5,1.16,1.16,1,1,False,,0.1,0.0,0.379,0.25,False,0
+resnet50_lr_0.01.pth,resnet50,CIFAR10,256,0.6894,0.635,0.9742,0.9681,5,1.16,1.16,1,1,False,,0.1,0.0,0.4385,0.25,False,0
+resnet50_lr_0.0001.pth,resnet50,CIFAR10,256,0.5185,0.5079,0.9444,0.9394,8,1.16,1.16,1,1,False,,0.1,0.0,0.3133,0.25,False,0
+resnet50_lr_0.001.pth,resnet50,CIFAR10,256,0.5794,0.5804,0.9585,0.9575,8,1.16,1.16,1,1,False,,0.1,0.0,0.3242,0.25,False,0
+resnet50_lr_0.01.pth,resnet50,CIFAR10,256,0.6894,0.6497,0.9742,0.9685,8,1.16,1.16,1,1,False,,0.1,0.0,0.367,0.25,False,0
