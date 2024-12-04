@@ -15,7 +15,9 @@ is based on a greedy path-following mechanism. This directory is a fork of https
       publisher={SIAM}
     }
 
-## Repo File Overview
+## Project Structure
+```plaintext
+.
 ├── imgs
 │   ├── accuracy_differences # Visualizations of the differences in accuracies based on bits used and learning rate
 │   ├── training_visualizations # Visualizations of 
