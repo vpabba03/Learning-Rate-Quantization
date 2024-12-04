@@ -45,7 +45,7 @@ is based on a greedy path-following mechanism. This directory is a fork of https
 └── requirements.txt
 ```
 
-## Installing Dependencies
+## Installing Dependencies without Docker
 We assume a python version that is greater than `3.8.0` is installed in the user's 
 machine. In the root directory of this repo, we provide a `requirements.txt` file for installing the python libraries that will be used in our code. 
 
@@ -64,10 +64,13 @@ pip3 install -r requirements.txt
 This should install all the required dependencies of this project. 
 
 ## Using Docker
-Alternatively, the code in this repo can be ran using docker. 
+Alternatively, the code in this repo can be ran using docker. To set this up, you will need to build the docker image
 
 ## Using CIFAR-10 dataset
 Choose a data directory to store the CIFAR10 dataset in the data loaders python file. This will download the CIFAR-10 dataset to this folder when the script is ran.
+
+## Running Experiments with Docker
+
 
 ## Running Experiments without Docker
 
