@@ -44,6 +44,9 @@ parser.add_argument('--fusion', '-f', action='store_true', help='fusing CNN and 
 parser.add_argument('--weights_file', '-wf', default=None, type=str,
                     help='path to specific weights file in train_model_weights folder for CIFAR10')
 
+parser.add_argument('--is_docker', '-dc', default='false', type=str,
+                    help='In Docker container? Set to "true" if in Docker, else "false".')
+
 args = parser.parse_args()
 
 
@@ -186,6 +189,8 @@ def main(b, mlp_s, cnn_s, bs, mlp_per, cnn_per, l):
     
     print("Sparsity: Org: {}, Quant: {}".format(original_sparsity, quantized_sparsity))
     # store the validation accuracy and parameter settings
+    if args.is_docker=='true':
+        LOG_FILE_NAME = '/app/logs/Quantization_Log.csv'
     with open(LOG_FILE_NAME, 'a') as f:
         csv_writer = csv.writer(f)
         row = [
