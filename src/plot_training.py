@@ -72,11 +72,11 @@ def plot_training(model, output_dir):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Plot training metrics for ResNet models.")
-    parser.add_argument("model", type=int, help="ResNet model number (e.g., 18, 50).")
+    parser.add_argument("--model", type=int, help="ResNet model number (e.g., 18, 50).")
     parser.add_argument(
         "--output_dir", 
         type=str, 
-        default="../../imgs/training_visualizations", 
+        default="../imgs/training_visualizations", 
         help="Directory to save the output plot. Default is '../../imgs/training_visualizations'."
     )
     args = parser.parse_args()

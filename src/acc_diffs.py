@@ -87,7 +87,7 @@ if __name__ == "__main__":
     parser.add_argument(
         "--output-dir", 
         type=str, 
-        default='../../imgs/accuracy_differences', 
+        default='../imgs/accuracy_differences', 
         help="Directory to save the output plots."
     )
 
