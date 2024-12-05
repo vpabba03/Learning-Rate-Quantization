@@ -52,7 +52,7 @@ Before running any experiments, initialize the quantization log using:
 python logs/init_log.py
 ```
 ## Using Docker
-Alternatively, the code in this repo can be run using Docker. To set this up, you will need to build the Docker image using the command `docker build --tag quant_nnets .`. This will build a Docker image with all the necessary packages installed to run the scripts contained in the repo. To see that the Docker image has built successfully, run the command `docker images` and look for `quant_nnets` under the repository column. Once the image is built, you can start running the experiments. These experiments are set up so that model training and model compression occur in two separate scripts. Each type of visualization also can be run using its own individual script. 
+All code in this repo can be fully ran using Docker. To set this up, you will need to build the Docker image using the command `docker build --tag quant_nnets .`. This will build a Docker image with all the necessary packages installed to run the scripts contained in the repo. To see that the Docker image has built successfully, run the command `docker images` and look for `quant_nnets` under the repository column. Once the image is built, you can start running the experiments. These experiments are set up so that model training and model compression occur in two separate scripts. Each type of visualization also can be run using its own individual script. 
 
 ### Training Networks with Docker
 Once we have a trained network, that network is saved in the directory `trained_model_weights`. To persist that trained model on your local machine, Docker volumes are used. The model training can be run using the following command:
