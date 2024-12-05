@@ -64,9 +64,9 @@ pip3 install -r requirements.txt
 This should install all the required dependencies of this project. 
 
 ## Using Docker
-Alternatively, the code in this repo can be ran using Docker. To set this up, you will need to build the docker image using the command `docker build --tag quant_nnets .`. This will build a docker image with all the neccesary packages installed to run the scripts contained in the repo. To see that the docker image has built successefully, run the command `docker images` and look for `quant_nnets` under the repository column. Once the image is built, you can start running the experiments. These experiments are set up so that model training and model compression occur in two separate scripts. Each type of visualization also can be ran using it's own individual script.
+Alternatively, the code in this repo can be ran using Docker. To set this up, you will need to build the docker image using the command `docker build --tag quant_nnets .`. This will build a docker image with all the neccesary packages installed to run the scripts contained in the repo. To see that the docker image has built successefully, run the command `docker images` and look for `quant_nnets` under the repository column. Once the image is built, you can start running the experiments. These experiments are set up so that model training and model compression occur in two separate scripts. Each type of visualization also can be ran using it's own individual script. 
 
-### Training Network with Docker
+### Training Networks with Docker
 Once we have a trained network, that network is saved in the directory `trained_network_weights`. To persist that trained model on your local machine, Docker volumes are used. The model training can be ran using the following command:
 ```
 docker run -it --name train_container \
@@ -75,16 +75,45 @@ docker run -it --name train_container \
 ```
 The model can chosen from 'resnet18', 'resnet34', 'resnet50', 'resnet101'. In addition, other hyperparameters, such as the learning rates tested and batch size can be chosen as well.
 
-### Quantizing Network with Docker
+### Quantizing Networks with Docker
 Once we have a quantized network, that network is saved in the directory `quantized_models`, which is persisted locally through the use of Docker volumes. The model quantization can be ran using the following command:
 ```
-docker run -it --name train_container \
+docker run -it --name quantization_container \
                 -v [absolute/path/to/repo]/trained_model_weights:/trained_model_weights \
                 -v [absolute/path/to/repo]/logs:/logs \
                 -v [absolute/path/to/repo]/quantized_models:/quantized_models \
-           quant_nnets python model_training.py -model [model] -ds 'CIFAR10' -wf [path/to/weights]
+           quant_nnets python main.py -model [model] -ds 'CIFAR10' -wf [path/to/weights]
 ```
 
+### Generating Visualizations with Docker
+There are three different visualization types that are generated. These all use Docker volumes to persist on your local machine.
+
+To generate visualizations of training metrics, run the following command:
+```
+docker run -it --name training_viz_container \
+                -v [absolute/path/to/repo]/trained_model_weights:/trained_model_weights \
+                -v [absolute/path/to/repo]/imgs:/imgs \
+           quant_nnets python plot_training.py --model [model] --output_dir [path/to/output/dir]
+```
+
+**NOTE**: The model arguement used in this command should be an integer corresponding to one of the resnet model sizes (18 for resnet18, 34 for resnet34, etc).
+
+To generate visualizations of the distributions of the pre-quantization and quantized weights, run the following command:
+```
+docker run -it --name weight_dist_viz_container \
+                -v [absolute/path/to/repo]/trained_model_weights:/trained_model_weights \
+                -v [absolute/path/to/repo]/imgs:/imgs \
+                -v [absolute/path/to/repo]/quantized_models:/quantized_models \
+           quant_nnets python quantized_weight_dist.py --quantized_dir [path/to/quantized/models] --original_dir [path/to/unquantized/models] --output_dir [path/to/output/dir]
+```
+
+To generate visualizations of the accuracy differences between models based on bits and learning rate, run the following command:
+```
+docker run -it --name acc_dif_viz_container \
+                -v [absolute/path/to/repo]/logs:/logs \
+                -v [absolute/path/to/repo]/imgs:/imgs \
+           quant_nnets python acc_diffs.py --model [model] --experiments-csv [path/to/experiment/csv]
+```
 
 ## Running Experiments without Docker
 
