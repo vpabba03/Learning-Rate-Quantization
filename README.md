@@ -17,31 +17,32 @@ This directory contains code necessary to run a post-training neural-network qua
 ## Project Structure and Descriptions
 ```plaintext
 .
-├── imgs
-│   ├── accuracy_differences # Visualizations of the differences in accuracies based on bits used and learning rate.
-│   ├── training_visualizations # Visualizations of training metrics by learning rate used.
-│   └── weight_distribution_plots 
-├── logs # Contains logs of quantization results and the hyperparameters used to generate the quantized models.
-│   ├── init_log.py # Command to initialize the quantization log CSV.
-│   └── Quantization_Log.csv # Example of a quantization log
-├── quantized_models # Folder containing models post quantization
-│   ├── resnet18
-│   └── resnet50
-├── src
-│   ├── model_training_notebooks # Folder containing various notebooks that can be used as an alternative way to run the training scripts.
-│   ├── visualization_notebooks # Folder containing various notebooks that can be used as an alternative way to generate the visualizations.
-│   ├── data_loaders.py # Helper code to help load datasets for models.
-│   ├── main.py # Script to run the quantization script.
-│   ├── model_training.py # Script to run the model training script.
-│   ├── plot_training.py # Script that plots and saves visualizations of training metrics by learning rate used.
-│   ├── quantize_neural_net.py # Contains code to perform the quantization of a neural network.
-│   ├── quantized_weight_dist.py # Script that plots and saves visualizations of the distributions between the weights of the original models and quantized models.
-│   ├── step_algorithm.py # Contains code for the step algorithm used in quantization.
-│   └── utils.py # Contains code for various helper functions used in quantization and evaluation.
-├── trained_model_weights # Folder containing saved model weights from training.
-├── Dockerfile # Dockerfile to build Docker image.
-├── README.md
-└── requirements.txt
+├── imgs                                # Directory for visualizations
+│   ├── accuracy_differences           # Plots of accuracy differences based on bits used and learning rate
+│   ├── training_visualizations        # Visualizations of training metrics by learning rate
+│   └── weight_distribution_plots      # Comparisons of pre-quantization and quantized weight distributions
+├── logs                                # Logs of quantization results and hyperparameters
+│   ├── init_log.py                    # Script to initialize the quantization log CSV
+│   └── Quantization_Log.csv           # Example quantization log file
+├── quantized_models                    # Contains models after quantization
+│   ├── resnet18                       # Quantized ResNet-18 models
+│   └── resnet50                       # Quantized ResNet-50 models
+├── src                                 # Source code and utilities
+│   ├── model_training_notebooks       # Jupyter notebooks for training models
+│   ├── visualization_notebooks        # Jupyter notebooks for generating visualizations
+│   ├── data_loaders.py                # Helper functions for loading datasets
+│   ├── main.py                        # Main script for running quantization experiments
+│   ├── model_training.py              # Script for training neural network models
+│   ├── plot_training.py               # Script for visualizing training metrics
+│   ├── quantize_neural_net.py         # Core logic for neural network quantization
+│   ├── quantized_weight_dist.py       # Script for visualizing weight distributions (quantized vs. original)
+│   ├── step_algorithm.py              # Implements the step algorithm for quantization
+│   └── utils.py                       # Helper functions for various tasks (e.g., evaluation, preprocessing)
+├── trained_model_weights               # Trained model weights
+├── Dockerfile                          # Docker configuration file for building an image
+├── README.md                           # Project documentation
+└── requirements.txt                    # Python dependencies for the project
+
 ```
 **IMPORTANT NOTE**: Before doing anything, you must initialize a quantization log CSV, which is used to store the results of the experiments, if it does not already exist. This can be done by navigating into the logs folder and running the init_log.py script.
 
