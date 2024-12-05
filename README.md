@@ -44,24 +44,7 @@ is based on a greedy path-following mechanism. This directory is a fork of https
 ├── README.md
 └── requirements.txt
 ```
-
-## Installing Dependencies without Docker
-We assume a python version that is greater than `3.8.0` is installed in the user's 
-machine. In the root directory of this repo, we provide a `requirements.txt` file for installing the python libraries that will be used in our code. 
-
-To install the necessary dependency, one can first start a virtual environment
-by doing the following: 
-```
-python3 -m venv .venv
-source .venv/bin/activate
-```
-The code above should activate a new python virtual environments.
-
-Then one can make use of the `requirements.txt` by 
-```
-pip3 install -r requirements.txt
-```
-This should install all the required dependencies of this project. 
+**IMPORTANT NOTE** Before doing anything, you must initialize a quantization log CSV if it does not already exist. This can be done by navigating into the logs folder and running the init_log.py script.
 
 ## Using Docker
 Alternatively, the code in this repo can be ran using Docker. To set this up, you will need to build the docker image using the command `docker build --tag quant_nnets .`. This will build a docker image with all the neccesary packages installed to run the scripts contained in the repo. To see that the docker image has built successefully, run the command `docker images` and look for `quant_nnets` under the repository column. Once the image is built, you can start running the experiments. These experiments are set up so that model training and model compression occur in two separate scripts. Each type of visualization also can be ran using it's own individual script. 
@@ -115,18 +98,25 @@ docker run -it --name acc_dif_viz_container \
            quant_nnets python acc_diffs.py --model [model] --experiments-csv [path/to/experiment/csv]
 ```
 
+## Installing Dependencies without Docker
+We assume a python version that is greater than `3.8.0` is installed in the user's 
+machine. In the root directory of this repo, we provide a `requirements.txt` file for installing the python libraries that will be used in our code. 
+
+To install the necessary dependency, one can first start a virtual environment
+by doing the following: 
+```
+python3 -m venv .venv
+source .venv/bin/activate
+```
+The code above should activate a new python virtual environments.
+
+Then one can make use of the `requirements.txt` by 
+```
+pip3 install -r requirements.txt
+```
+This should install all the required dependencies of this project. 
+
 ## Running Experiments without Docker
-
-The implementation of GPFQ and its sparse mode in our paper is contained in `src/main.py`. 
-
-1. Before running the `main.py` file, navigate to the `logs` directory and run `python init_log.py`. This will prepare a log file `Quantization_Log.csv` which is used to store the results of the experiment. 
-
-2. Open the `src` directory and run `python main.py -h` to check hyperparameters, including the number of bits/batch size used for quantization, the scalar of alphabets, the probability for subsampling in CNNs, and regularizations used for sparse quantization etc.
-
-3. To start the experiment, we provide an example: If we want to quantize the ResNet-18 using ImageNet data with bit = 4, batch_size = 512, scalar = 1.16 and the CIFAR-10 dataset, then we can try this:
-```
-python main.py -model resnet18 -b 4 -bs 256 -s 1.16 -ds 'CIFAR10'
-```
-There are other options we can select, see `main.py`
+Running experiments once the enviorment is set up should be similar
 
 Please open Readme.ipynb for more details. 
