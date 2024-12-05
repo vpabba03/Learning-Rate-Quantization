@@ -64,12 +64,27 @@ pip3 install -r requirements.txt
 This should install all the required dependencies of this project. 
 
 ## Using Docker
-Alternatively, the code in this repo can be ran using docker. To set this up, you will need to build the docker image
-
-## Using CIFAR-10 dataset
-Choose a data directory to store the CIFAR10 dataset in the data loaders python file. This will download the CIFAR-10 dataset to this folder when the script is ran.
+Alternatively, the code in this repo can be ran using Docker. To set this up, you will need to build the docker image using the command `docker build --tag quant_nnets .`. This will build a docker image with all the neccesary packages installed to run the scripts contained in the repo. To see that the docker image has built successefully, run the command `docker images` and look for `quant_nnets` under the repository column.
 
 ## Running Experiments with Docker
+Once the image is built, you can start running the experiments. These experiments are set up so that model training and model compression occur in two separate scripts. Once we have a trained network, that network is saved in the directory `trained_network_weights`. To persist that trained model on your local machine, Docker volumes are used. 
+
+The model training can be ran using the following command:
+```
+docker run -it --name train_container \
+                -v [absolute/path/to/repo]/trained_model_weights:/trained_model_weights \
+           quant_nnets python model_training.py -m [model]
+```
+The model can chosen from 'resnet18', 'resnet34', 'resnet50', 'resnet101'. In addition, other hyperparameters, such as the learning rates tested and batch size can be chosen as well.
+
+Once we have a quantized network, that network is saved in the directory `quantized_models`, which is persisted locally through the use of Docker volumes. The model quantization can be ran using the following command:
+```
+docker run -it --name train_container \
+                -v [absolute/path/to/repo]/trained_model_weights:/trained_model_weights \
+                -v [absolute/path/to/repo]/logs:/logs \
+                -v [absolute/path/to/repo]/quantized_models:/quantized_models \
+           quant_nnets python model_training.py -model [model] -ds 'CIFAR10' -wf [path/to/weights]
+```
 
 
 ## Running Experiments without Docker
