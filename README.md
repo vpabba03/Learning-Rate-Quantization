@@ -1,7 +1,7 @@
 # Impact of Training Learning Rates in Quantized Models with CIFAR-10
 
 ## Overview 
-This directory contains code necessary to run a post-training neural-network quantization method GPFQ, that is based on a greedy path-following mechanism. This directory is a fork of https://github.com/YixuanSeanZhou/Quantized_Neural_Nets. It adds a modified run script to support CIFAR10 better. It changes the incoming model to better fit the data as well as adds a basic training and evaluation script. This is to facilitate easily testing many different models on the CIFAR10 dataset, since it is not as computationally expensive as doing it on the ImageNet dataset. In addition, we include scripts to generate visualizations of the effects of learning rate hyperparameter changes on the quantization of these models.
+This directory contains code necessary to run a post-training neural-network quantization method GPFQ, that is based on a greedy path-following mechanism. This directory is a fork of https://github.com/YixuanSeanZhou/Quantized_Neural_Nets. It adds a modified run script to support CIFAR10 better. It changes the incoming model to better fit the data as well as adds a basic training and evaluation script. This is to facilitate easily testing many different models on the CIFAR10 dataset, since it is not as computationally expensive as doing it on the ImageNet dataset. In addition, we include scripts to generate visualizations to assist in the analysis of learning rate hyperparameters on quantized models.
 
     @article{zhang2023post,
       title={Post-training quantization for neural networks with provable guarantees},
@@ -44,8 +44,13 @@ This directory contains code necessary to run a post-training neural-network qua
 └── requirements.txt                    # Python dependencies for the project
 
 ```
-**IMPORTANT NOTE**: Before doing anything, you must initialize a quantization log CSV, which is used to store the results of the experiments, if it does not already exist. This can be done by navigating into the logs folder and running the init_log.py script.
+## Getting Started
+### **Initialize the Quantization Log**  
+Before running any experiments, initialize the quantization log using:
 
+```bash
+python logs/init_log.py
+```
 ## Using Docker
 Alternatively, the code in this repo can be run using Docker. To set this up, you will need to build the Docker image using the command `docker build --tag quant_nnets .`. This will build a Docker image with all the necessary packages installed to run the scripts contained in the repo. To see that the Docker image has built successfully, run the command `docker images` and look for `quant_nnets` under the repository column. Once the image is built, you can start running the experiments. These experiments are set up so that model training and model compression occur in two separate scripts. Each type of visualization also can be run using its own individual script. 
 
@@ -115,4 +120,4 @@ pip3 install -r requirements.txt
 This should install all the required dependencies of this project. 
 
 ## Running Experiments without Docker
-Running experiments once the environment is set up should be similar to running the Docker commands. To do so, navigate to the `src` folder and simply run the commands using `python [script]` followed by any necessary arguments. These can be found for any given script by running `python [script] -h`.
+Running experiments once the environment is set up should be similar to running the Docker commands. To do so, navigate to the `src` folder and simply run the commands using `python [script]` followed by any necessary arguments. These can be found for any given script by running `python [script] -h`. In addition, Jupyter notebooks for the training and visualizations are included for further fidelity if needed.
