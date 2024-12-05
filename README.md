@@ -44,7 +44,7 @@ is based on a greedy path-following mechanism. This directory is a fork of https
 ├── README.md
 └── requirements.txt
 ```
-**IMPORTANT NOTE**: Before doing anything, you must initialize a quantization log CSV if it does not already exist. This can be done by navigating into the logs folder and running the init_log.py script.
+**IMPORTANT NOTE**: Before doing anything, you must initialize a quantization log CSV, which is used to store the results of the experiements, if it does not already exist. This can be done by navigating into the logs folder and running the init_log.py script.
 
 ## Using Docker
 Alternatively, the code in this repo can be ran using Docker. To set this up, you will need to build the docker image using the command `docker build --tag quant_nnets .`. This will build a docker image with all the neccesary packages installed to run the scripts contained in the repo. To see that the docker image has built successefully, run the command `docker images` and look for `quant_nnets` under the repository column. Once the image is built, you can start running the experiments. These experiments are set up so that model training and model compression occur in two separate scripts. Each type of visualization also can be ran using it's own individual script. 
@@ -117,5 +117,5 @@ pip3 install -r requirements.txt
 This should install all the required dependencies of this project. 
 
 ## Running Experiments without Docker
-Running experiments once the enviorment is set up should be similar to running the Docker commands. Simply run the commands using `python [script]` followed by any neccesary arguements.
+Running experiments once the enviorment is set up should be similar to running the Docker commands. To do so navigate to the `src` folder and simply run the commands using `python [script]` followed by any neccesary arguements. These can be found for any given script by running `python [script] -h`.
 
