@@ -87,12 +87,12 @@ def main(b, mlp_s, cnn_s, bs, mlp_per, cnn_per, l):
         
         # Modified weights loading section
         if args.weights_file:
-            weights_path = os.path.join('trained_model_weights', args.weights_file)
+            weights_path = os.path.join('../trained_model_weights', args.weights_file)
             if not os.path.exists(weights_path):
                 raise ValueError(f"Weights file not found: {weights_path}")
             state_dict = torch.load(weights_path, map_location='cpu')
         else:
-            weights_path = os.path.join('trained_model_weights', f'{args.model}_cifar10.pth')
+            weights_path = os.path.join('../trained_model_weights', f'{args.model}_cifar10.pth')
             if not os.path.exists(weights_path):
                 raise ValueError(f"Default weights file not found: {weights_path}")
             state_dict = torch.load(weights_path, map_location='cpu')
