@@ -1,4 +1,4 @@
-# Post-training Quantization for Neural Networks with Provable Guarantees with CIFAR-10
+# Impact of Training Learning Rates in Quantized Models with CIFAR-10
 
 ## Overview 
 This directory contains code necessary to run a post-training neural-network quantization method GPFQ, that is based on a greedy path-following mechanism. This directory is a fork of https://github.com/YixuanSeanZhou/Quantized_Neural_Nets. It adds a modified run script to support CIFAR10 better. It changes the incoming model to better fit the data as well as adds a basic training and evaluation script. This is to facilitate easily testing many different models on the CIFAR10 dataset, since it is not as computationally expensive as doing it on the ImageNet dataset. In addition, we include scripts to generate visualizations of the effects of learning rate hyperparameter changes on the quantization of these models.
